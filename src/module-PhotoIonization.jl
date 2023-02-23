@@ -501,6 +501,7 @@ module PhotoIonization
                     for  omega in settings.photonEnergies
                         # Photon energies are still in 'pre-defined' units; convert to Hartree
                         omega_au = Defaults.convertUnits("energy: to atomic", omega)
+                        fLevel.energy = fLevel.energy + 0.0252768
                         energy   = omega_au - (fLevel.energy - iLevel.energy)
                         if  energy < 0.    continue   end  
                         channels = PhotoIonization.determineChannels(fLevel, iLevel, settings) 
